@@ -12,14 +12,14 @@ import urllib.parse
 import sqlalchemy
 
 # Set up SQLAlchemy connection string
-conn_str = "DRIVER={ODBC Driver 17 for SQL Server};SERVER=lovekush.database.windows.net;DATABASE=Student;UID=kush;PWD=Abc@12345"
+conn_str = "DRIVER={SQL Server};SERVER=LAPTOP-Q0IQ3FSA\SQLEXPRESS;DATABASE=ojas;UID=Ojas;PWD=somvanshi"
 
 # Create SQLAlchemy engine
 quoted_conn_str = urllib.parse.quote_plus(conn_str)
 engine = create_engine(f'mssql+pyodbc:///?odbc_connect={quoted_conn_str}')
 
 # Execute SQL query and fetch data into a DataFrame
-query = 'SELECT * FROM T1'
+query = 'SELECT * from student'
 df = pd.read_sql(query, engine)
 
 # Set up OpenAI environment variables
